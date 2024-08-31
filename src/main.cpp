@@ -5,12 +5,15 @@
 
 #define I2C_ADDRESS 0x3C
 #define SERIAL_SPEED 57600
+#define RXD2 16
+#define TXD2 17
 
 SSD1306AsciiWire oled_display;
 
 void setup()
 {
   Serial.begin(SERIAL_SPEED);
+  Serial2.begin(115200, SERIAL_8N1, RXD2, TXD2);
   Wire.begin();
   Wire.setClock(400000L);
   oled_display.begin(&Adafruit128x64, I2C_ADDRESS);

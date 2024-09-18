@@ -66,13 +66,13 @@ void request_data_streams() //  REQUEST_DATA_STREAM (#66)
     }
 }
 
-void MAVLink_receive()
+void MAVLink_receive(BluetoothSerial &SerialBT)
 {
 
     while (Serial.available())
     {
         uint8_t c = Serial.read();
-        Serial2.write(c);
+        SerialBT.write(c);
         if (mavlink_parse_char(MAVLINK_COMM_0, c, &msg, &status))
         {
             switch (msg.msgid)

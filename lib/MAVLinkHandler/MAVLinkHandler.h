@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #include <mavlink_types.h>
 #include <common/mavlink.h>
+#include <BluetoothSerial.h>
 
 // Message #0  HEARTHBEAT
 extern uint8_t ap_type;
@@ -28,4 +29,4 @@ extern int32_t ap_alt_ag;
 
 void send_to_FC(uint32_t msg_id);
 void request_data_streams();
-void MAVLink_receive();
+void MAVLink_receive(BluetoothSerial &SerialBT);
